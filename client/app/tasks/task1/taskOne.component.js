@@ -2,23 +2,22 @@
   'use strict';
 
 
-  class TasksController {
+  class TaskOneController {
     // constructor() {
     //   this.title = '';
     //   this.tasks = [];
     //   console.log('constructor');
     // }
-    
+
     $onInit() {
-      var vm = this;
-      vm.title = 'Tasks';
-      console.log('onInit');
+			var vm = this;
+      vm.items = ['1', '2', '3'];
     }
   }
   angular.module('appApp')
-    .component('tasks', {
-      templateUrl: 'app/tasks/tasks.html',
-      controller: TasksController,
+    .component('taskOne', {
+      templateUrl: 'app/tasks/task1/taskOne.html',
+      controller: TaskOneController,
       controllerAs: 'vm'
     });
 

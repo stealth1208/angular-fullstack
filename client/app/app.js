@@ -12,8 +12,14 @@ angular.module('appApp', ['appApp.constants', 'ngCookies', 'ngResource', 'ngSani
       .state('tasks', {
         url: '/tasks',
         template: '<tasks></tasks>',
-        // controller: 'TasksController',
-        // controllerAs: 'vm'
+        views: {
+          task1: {
+            template: '<taskOne></taskOne>'
+          },
+          task2: {
+            template: '<taskTwo></taskTwo>'
+          }
+        }        
       });
     $urlRouterProvider.otherwise('/');
 
