@@ -11,13 +11,17 @@ angular.module('appApp', ['appApp.constants', 'ngCookies', 'ngResource', 'ngSani
       })
       .state('tasks', {
         url: '/tasks',
-        template: '<tasks></tasks>',
         views: {
-          task1: {
-            template: '<taskOne></taskOne>'
+          // Main view - Relative name
+          '': {
+            template: '<tasks></tasks>'
           },
-          task2: {
-            template: '<taskTwo></taskTwo>'
+          // Component view - Absolute name
+          'taskOne@tasks': {
+            template: '<task-one></task-one>'
+          },
+          'taskTwo@tasks': {
+            template: '<task-two></task-two>'
           }
         }        
       });
