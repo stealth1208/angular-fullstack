@@ -3,16 +3,20 @@
 
 
   class TasksController {
-    // constructor() {
-    //   this.title = '';
-    //   this.tasks = [];
-    //   console.log('constructor');
-    // }
+    constructor($scope) {      
+      $scope.testScope = 5;
+      this.title = '';
+      this.tasks = [];
+      this.plusTestScope = function(){
+        $scope.testScope++;
+      }      
+    }
     
-    $onInit() {
+    $onInit($scope) {
       var vm = this;
       vm.title = 'Tasks';
-      console.log('onInit');
+      vm.password = '123';
+      vm.username = 'Chau';
     }
   }
   angular.module('appApp')

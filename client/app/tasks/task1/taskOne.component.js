@@ -60,9 +60,8 @@
     sayYeah() {
       console.log(this);
       alert('oh yeahhh....');
-    }
-
-  }
+    }   
+}
 
   // function sayYeah() {
   //   console.log(this);
@@ -70,15 +69,15 @@
   // }
 
   angular.module('appApp')
-    .component('taskOne', {
-      templateUrl: 'app/tasks/task1/taskOne.html',
-      controller: TaskOneController,
-      controllerAs: 'vm',
-      bindings: {
-        count1: '=1',
-        count2: '=',
-        count3: '=',
-      }
-    });
+  .component('taskOne', {
+    templateUrl: 'app/tasks/task1/taskOne.html',
+    controller: TaskOneController,
+    controllerAs: 'vm',
+    bindings: {
+      count1: '=1',
+      count2: '=',
+      count3: '=',
+    }
+  });
 
 })();
