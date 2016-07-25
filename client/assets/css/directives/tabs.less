@@ -1,29 +1,30 @@
+
 tabs {
-		text-align: center;
-		li{
-				display: inline-block;
-				list-style-type: none;
-				margin-right: 10px;
-				font-weight: 700;
-				cursor: pointer;
-				a{
-					text-decoration: none !important;
-					color: black !important;
-					&:link{
-						// color: black !important;
-					}
-					&:visited{
-						color: gray;
-					}
-					&:hover{
-						color: blue;
-					}
-					&:active{
-						color: red;
-					}
-					.active{
-						text-decoration: underline;
-					}
-				} 
+	text-align: center;
+	> div {
+		border: 1px solid @boder-color;
+	}
+	li{
+		display: inline-block;
+		list-style-type: none;
+		margin-right: 10px;
+		font-weight: 700;
+		cursor: pointer;				
+		a {
+			text-decoration: none !important;					
+			&:link{
+				color: @link-color !important;
+			}
+			&:visited{
+				color: @link-visited !important;
+			}
+			&:hover{
+				color: @link-hover !important;
+			}								
+		} 
+		> .active {
+			text-decoration: underline;
+			color: @link-active !important;
 		}
+	}
 }

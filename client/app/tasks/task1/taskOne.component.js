@@ -55,11 +55,11 @@
     }
 
     hideMe(count, target) {
-      return count == target;
+      return count === target;
     }
     sayYeah() {
       console.log(this);
-      alert('oh yeahhh....');
+      window.alert('oh yeahhh....');
     }   
 }
 
