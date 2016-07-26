@@ -5,8 +5,8 @@
 		.module('appApp')
 		.directive('tabContent', tabContent);
 
-	tabContent.$inject = [];
-	function tabContent() {
+	tabContent.$inject = ['tabsService'];
+	function tabContent(tabsService) {
 		// Usage:
 		//
 		// Creates:
@@ -28,11 +28,11 @@
 		function link(scope, element, attrs, ctrls) {
 			var tabsCtrl = ctrls[0];
 			var tabContentCtrl = ctrls[1];
-			
-			tabsCtrl.getData().then(function(res){
-				console.log(scope, attrs, ctrls);
-				tabContentCtrl.dynamicContent = res.text;	
+			console.log(tabsService.data);
+			scope.$watch('tabsService.data', function(newValue, oldValue){
+				console.log(newValue);
 			});
+			
 		}
 	}
 	/* @ngInject */

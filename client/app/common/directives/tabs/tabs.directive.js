@@ -38,27 +38,14 @@
 		}];		
 
 		vm.selected = 0;
-		vm.selectTab = selectTab;
-		vm.getData = getData;
+		vm.selectTab = selectTab;				
 
 		///////////////////////////
 
-		function selectTab(tab, index){			
+		function selectTab(tab){			
 			vm.selected = vm.tabs.indexOf(tab);
-			getData(vm.selected);
+			tabsService.setId(vm.selected)
 			return vm.selected;
 		}
-
-		function getData(id){
-			var defer = $q.defer();		
-			tabsService.getData(id || vm.selected).then(function(res){
-				$scope.pa = res.text;
-				vm.pa = res.text;			
-				defer.resolve(res);
-			});
-			return defer.promise;
-		}
-
-		
 	}
 })();
