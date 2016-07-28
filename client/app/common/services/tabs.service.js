@@ -15,26 +15,53 @@
 			text: 'Content 3'
 		}];
 
-		var data = {};
+		var contentId = '';
+		var data = [];
+		var penList = [];
 
 		var service = {
+			getContent: getContent,
 			getData: getData,
-			setId: setId,
-			data: data
+			addPen: addPen,
+			getPens: getPens	
 		};
 		return service;
+
 		////////////////
-		function getData(id) {
-			var defer = $q.defer();
-			setTimeout(function () {
-				data = contents[id]; 
-				defer.resolve(contents[id]);
-			}, 2000);
-			return defer.promise;
+
+		function getContent(id) {
+			// if(contentId !== id || !data.length){
+			// 	contentId = id;
+			// 	getData().then(function(){
+			// 		return data;
+			// 	});
+			// }else{
+			// 	return data;
+			// }
+			data.push(contents[contentId ? contentId: 0]);
+			contentId = id;
+			return data;
 		}
 
-		function setId(id) {
-			getData(id);
+		// function setId(id) {
+		// 	contentId = id;
+		// }
+
+		function getData(){
+			// var defer = $q.defer();
+			// setTimeout(function () {
+			// 	defer.resolve(contents[contentId || 0]);
+			// }, 2000);
+			// return defer.promise;
+				data.push(contents[contentId || 0]); 
+		}
+
+		function addPen(pen){
+			penList.push(pen);
+		}
+
+		function getPens(){
+			return penList;
 		}
 
 

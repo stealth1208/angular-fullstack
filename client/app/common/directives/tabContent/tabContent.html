@@ -1,5 +1,9 @@
 <div>
     <p>{{name}}</p>
-    {{tcCtrl.test}}
-    {{tcCtrl.dynamicContent}}
+    <div ng-repeat="item in tcCtrl.data track by $index">
+        {{item}}        
+    </div>
+    <div ng-repeat="pen in tcCtrl.pens">
+        {{pen}}        
+    </div>
 </div>

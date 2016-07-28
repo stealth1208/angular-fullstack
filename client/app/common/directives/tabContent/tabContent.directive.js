@@ -13,7 +13,7 @@
 		//
 		var directive = {
 			require: ['^^tabs','tabContent'],
-			controller: TabContentController,
+			controller: ['tabsService', TabContentController],
 			controllerAs: 'tcCtrl',
 			link: link,
 			restrict: 'EA',
@@ -26,16 +26,16 @@
 		return directive;
 
 		function link(scope, element, attrs, ctrls) {
-			var tabsCtrl = ctrls[0];
-			var tabContentCtrl = ctrls[1];
-			console.log(tabsService.data);
-			scope.$watch('tabsService.data', function(newValue, oldValue){
-				console.log(newValue);
-			});
+			var tabsCtrl = ctrls[0];			
+				
 			
 		}
 	}
 	/* @ngInject */
-	function TabContentController() {
+	function TabContentController(tabsService) {
+		var vm = this;
+		vm.data = tabsService.getContent()		
+		vm.pens = tabsService.getPens();
+		
 	}
 })();

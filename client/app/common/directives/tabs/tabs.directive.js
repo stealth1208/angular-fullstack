@@ -38,14 +38,20 @@
 		}];		
 
 		vm.selected = 0;
-		vm.selectTab = selectTab;				
+		vm.pen = '';
+		vm.selectTab = selectTab;
+		vm.addPen = addPen;				
 
 		///////////////////////////
 
 		function selectTab(tab){			
-			vm.selected = vm.tabs.indexOf(tab);
-			tabsService.setId(vm.selected)
-			return vm.selected;
+			vm.selected = vm.tabs.indexOf(tab);			
+			tabsService.getContent(vm.selected);
+		}
+
+		function addPen(){
+			tabsService.addPen(vm.pen);
+			vm.pen = '';
 		}
 	}
 })();
